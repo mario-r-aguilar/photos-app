@@ -11,14 +11,20 @@
 	<body>
 		<div class="container">
 			<div class="camera-gallery-container">
-				<h1>Cámara Web</h1>
+				<h1>Tomar fotos</h1>
+
 				<div class="camera-container">
-					<video id="video" autoplay></video>
-					<button id="snap" class="button">Tomar Foto</button>
-					<canvas id="canvas"></canvas>
-					<img id="photo" alt="Foto capturada" width="100" height="100" />
+					<video id="video" autoplay>Video</video>
+					<button id="snap" class="button">Capturar</button>
+					<canvas id="canvas">Canva</canvas>
+					<figure>
+						<img id="photo" alt="Foto capturada" width="200" height="200" />
+						<figcaption id="infoPhoto" class="info-photo">
+							Ultima captura realizada
+						</figcaption>
+					</figure>
 				</div>
-				<h3>Galeria</h3>
+
 				<div id="gallery" class="gallery"></div>
 			</div>
 		</div>

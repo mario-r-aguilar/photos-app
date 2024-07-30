@@ -1,0 +1,87 @@
+h1 {
+	margin-bottom: 2rem;
+	margin-left: 2rem;
+	color: white;
+}
+
+body {
+	background-color: black;
+}
+
+.camera-container,
+.gallery {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.gallery {
+	margin-top: 4rem;
+	padding: 3rem;
+	background-color: rgb(56, 56, 56);
+	flex-wrap: wrap;
+	border-radius: 5px;
+}
+
+.gallery-photo {
+	max-width: 250px;
+	border-radius: 5px;
+	border: 1px solid black;
+}
+
+.info-gallery {
+	font-size: 18px;
+	color: white;
+}
+
+#canvas,
+#photo {
+	display: none;
+	border-radius: 5px;
+	border: 1px solid rgba(250, 250, 0, 0.664);
+}
+
+.info-photo {
+	margin-top: 0.3rem;
+	color: white;
+	display: none;
+}
+
+.show-info-photo {
+	display: block;
+}
+
+#video {
+	max-width: 450px;
+	border-radius: 5px;
+	border: 1px solid white;
+	box-shadow: 2px 2px 2px white;
+}
+
+#snap {
+	background-color: red;
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+	border: 1px solid red;
+	color: white;
+	font-weight: 700;
+	margin: 6rem 0;
+}
+
+.delete-button {
+	display: block;
+	margin-bottom: 0.5rem;
+	margin-top: 0.2rem;
+	border: 1px solid black;
+	box-shadow: 2px 2px 2px grey;
+	border-radius: 5px;
+	background-color: rgb(190, 47, 47);
+	color: rgb(255, 255, 255);
+	padding: 0.2rem;
+}
+
+.delete-button:hover {
+	background-color: rgb(255, 255, 255);
+	color: rgb(190, 47, 47);
+}

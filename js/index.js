@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	const canvas = document.getElementById('canvas');
 	const context = canvas.getContext('2d');
 	const photo = document.getElementById('photo');
-	//const gallery = document.getElementById('gallery');
+	const gallery = document.getElementById('gallery');
+	const infoPhoto = document.getElementById('infoPhoto');
 
 	// Solicitud de acceso a la cámara
 	navigator.mediaDevices
@@ -44,7 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		let photos = JSON.parse(localStorage.getItem('photos')) || [];
 		gallery.innerHTML = '';
 		if (photos.length === 0) {
-			gallery.innerHTML = '<p>No hay fotos en la galería.</p>';
+			gallery.innerHTML =
+				'<p class="info-gallery">No hay fotos en la galería.</p>';
 		} else {
 			photos.forEach((photoURL, index) => {
 				let imgContainer = document.createElement('div');
@@ -53,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				let img = document.createElement('img');
 				img.src = photoURL;
 				img.classList.add('gallery-photo');
+				infoPhoto.classList.add('show-info-photo');
 				imgContainer.appendChild(img);
 
 				let deleteButton = document.createElement('button');
