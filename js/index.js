@@ -40,6 +40,18 @@ document.addEventListener('DOMContentLoaded', () => {
 		localStorage.setItem('photos', JSON.stringify(photos));
 	}
 
+	// Convertir data URL a Blob
+	function dataURLToBlob(dataURL) {
+		const [header, data] = dataURL.split(','); // Separa el encabezado de los datos en la dataURL
+		const mime = header.split(':')[1].split(';')[0]; // Extrae el tipo de mime
+		const binary = atob(data); // Convierte los datos de base64 a cadena binaria
+		const array = [];
+		for (let i = 0; i < binary.length; i++) {
+			array.push(binary.charCodeAt(i)); // Convierte cada caracter binario a su código de caracter
+		}
+		return new Blob([new Uint8Array(array)], { type: mime }); // Crea un Blob
+	}
+
 	// Mostrar fotos en la galería
 	function displayPhotos() {
 		let photos = JSON.parse(localStorage.getItem('photos')) || [];
@@ -56,6 +68,16 @@ document.addEventListener('DOMContentLoaded', () => {
 				img.src = photoURL;
 				img.classList.add('gallery-photo');
 				infoPhoto.classList.add('show-info-photo');
+
+				// Mostrar foto en otra pestaña al hacer clic en ella
+				img.addEventListener('click', () => {
+					const blob = dataURLToBlob(photoURL); // Ejecuta la función para convertir la data URL a Blob
+					const objectURL = URL.createObjectURL(blob); // Crea una Object URL para el Blob
+					window.open(objectURL, '_blank'); // Abre la Object URL en una nueva pestaña
+
+					setTimeout(() => URL.revokeObjectURL(objectURL), 1000); // Libera el Object URL después de un breve retraso
+				});
+
 				imgContainer.appendChild(img);
 
 				let deleteButton = document.createElement('button');
