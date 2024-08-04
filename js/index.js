@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	const context = canvas.getContext('2d');
 	const photo = document.getElementById('photo');
 	const gallery = document.getElementById('gallery');
-	const infoPhoto = document.getElementById('infoPhoto');
 
 	// Solicitud de acceso a la cámara
 	navigator.mediaDevices
@@ -67,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
 				let img = document.createElement('img');
 				img.src = photoURL;
 				img.classList.add('gallery-photo');
-				infoPhoto.classList.add('show-info-photo');
 
 				// Mostrar foto en otra pestaña al hacer clic en ella
 				img.addEventListener('click', () => {
